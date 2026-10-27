@@ -4,6 +4,7 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        'holgerson09/workspace.nvim',
     },
     config = function()
         local settings = require('h09.settings')
@@ -19,25 +20,27 @@ return {
             },
         })
 
+        local t = require('workspace.telescope'):new()
+
         local keymap = vim.keymap
 
-        keymap.set('n', '<leader>fd', builtin.find_files)
-        keymap.set('n', '<leader>fg', builtin.git_files)
-        keymap.set('n', '<leader>fs', builtin.live_grep)
-        keymap.set('n', '<leader>fc', builtin.grep_string)
-        keymap.set('n', '<leader>fl', builtin.lsp_document_symbols)
-        keymap.set('n', '<leader>fh', builtin.help_tags)
+        keymap.set('n', '<leader>fd', t:with_cwd(builtin.find_files))
+        keymap.set('n', '<leader>fg', t:with_cwd(builtin.git_files))
+        keymap.set('n', '<leader>fs', t:with_cwd(builtin.live_grep))
+        keymap.set('n', '<leader>fc', t:with_cwd(builtin.grep_string))
         keymap.set('n', '<leader>fw', function()
             local search_string = vim.fn.input('Grep > ')
             if search_string ~= '' then
-                builtin.grep_string({
+                t:with_cwd(builtin.grep_string)({
                     search = search_string,
                 })
             end
         end)
 
+        keymap.set('n', '<leader>fl', builtin.lsp_document_symbols)
+        keymap.set('n', '<leader>fh', builtin.help_tags)
         keymap.set('n', '<leader>fn', function()
-            require('telescope.builtin').find_files({
+            builtin.find_files({
                 cwd = vim.fn.stdpath('config'),
             })
         end)
