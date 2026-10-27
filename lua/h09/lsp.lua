@@ -13,7 +13,7 @@ M.servers = {
     'lua_ls',
     'neocmake',
     'pyright',
-    'roslyn_ls',
+    'tinymist',
     'ts_ls',
     'yamlls',
 }
@@ -86,6 +86,8 @@ M.setup = function()
     vim.lsp.enable({
         'c3_lsp',
         'hls',
+        'jdtls',
+        'roslyn',
         'rust_analyzer',
         'zls',
     })

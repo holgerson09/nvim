@@ -22,6 +22,7 @@ return {
             'markdown',
             'markdown_inline',
             'query',
+            'razor',
             'rust',
             'tsx',
             'typescript',
