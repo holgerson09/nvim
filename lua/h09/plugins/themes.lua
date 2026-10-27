@@ -1,6 +1,10 @@
 return {
     event = 'VimEnter',
     {
+        'nyoom-engineering/oxocarbon.nvim',
+        build = false,
+    },
+    {
         'dracula/vim',
         name = 'dracula',
     },
@@ -38,6 +42,8 @@ return {
     'dikiaap/minimalist',
     'mhartington/oceanic-next',
     'rakr/vim-two-firewatch',
+    'haishanh/night-owl.vim',
+    'sainnhe/everforest',
 
     'https://codeberg.org/Brargenzilian/darcula-solid.nvim',
 }

@@ -9,7 +9,15 @@ return {
             nerd_font_variant = 'mono',
         },
         completion = {
-            documentation = { auto_show = false },
+            menu = {
+                border = require('h09.settings').border,
+            },
+            documentation = {
+                auto_show = false,
+                window = {
+                    border = require('h09.settings').border,
+                },
+            },
         },
         fuzzy = { implementation = 'prefer_rust' },
     },

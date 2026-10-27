@@ -36,6 +36,5 @@ return {
 
         keymap.set('n', '<leader>gb', gitsigns.blame)
         keymap.set('n', '<leader>gd', gitsigns.diffthis)
-        keymap.set('n', '<leader>gc', gitsigns.show_commit)
     end,
 }

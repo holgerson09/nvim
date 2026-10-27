@@ -11,6 +11,8 @@ keymap.set('n', '<leader>sx', ':close<cr>')
 
 keymap.set('v', 'J', ':m \'>+1<cr>gv=gv')
 keymap.set('v', 'K', ':m \'<-2<cr>gv=gv')
+keymap.set('v', '>', '>gv')
+keymap.set('v', '<', '<gv')
 
 keymap.set('n', 'J', 'mzJ`z')
 keymap.set('n', 'gJ', 'mzgJ`z')
